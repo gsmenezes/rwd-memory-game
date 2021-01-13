@@ -1,46 +1,51 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    background-color: #1b263b;
-    overflow: hidden;
+  width: 100%;
+  font-family: "Hachi Maru Pop", cursive;
+  background-color: #1b263b;
+  overflow: hidden;
+}
+
+h1 {
+  color: white;
+  font-size: 1.7rem;
+  text-align: center;
+  margin: 10px 0 0;
 }
 
 .memory-game {
-    height: 95vh;
-    width: 640px;
-    margin: 40px auto;
-    display: flex;
-    flex-wrap: wrap;
-    perspective: 1000px; /* perspectiva do usuario no eixo z, quanto maior, maior o efeito da perspectiva */
+  height: 95vh;
+  width: 650px;
+  margin: 10px 390px;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px; /* perspectiva do usuario no eixo z, quanto maior, maior o efeito da perspectiva */
 }
 
 .card {
-    height: calc( 28% - 2px);
-    width: calc(22% - 10px);
-    margin: 0px 5px;
-    position: relative;
-    cursor: pointer;
-    transform: scale(1);
-    transform-style: preserve-3d; /* adiciona perspectiva 3d, para que o elemento nao fique achatada no plano */
-    transition: transform .9s; /* adiciona efeito de movimento ao flip do card */
+  height: calc(28% - 2px);
+  width: calc(22% - 10px);
+  margin: 0px 5px;
+  position: relative;
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d; /* adiciona perspectiva 3d, para que o elemento nao fique achatado no plano */
+  transition: transform 0.9s; /* adiciona efeito de movimento ao flip do card */
 }
 
-.card:hover{
-    height: calc( 27.8% - 2px);
-    width: calc(21.8% - 10px);
-    opacity: 0.8;
-
+.card:hover {
+  height: calc(27.8% - 2px);
+  width: calc(21.8% - 10px);
 }
 
-.card:active{
-    transform: scale(0.97);
-    transition: transform .2s;
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
 }
 
 .card-front,
@@ -50,14 +55,16 @@ body {
   padding: 5px;
   position: absolute;
   border-radius: 5px;
-  background: #778da9;;
+  background: #778da9;
   backface-visibility: hidden; /* todo elemento tem uma frente e um verso (ao contrario, como um espelho.) essa propriedade retira o verso */
 }
 
 .card-front {
-    transform: rotateY(180deg); /* antes, o verso aparecia transparente, pois ambas as imagens tem position absolute, ao girar no eixo Y, elas ficaram com os versos virados */
+  transform: rotateY(
+    180deg
+  ); /* antes, o verso aparecia transparente, pois ambas as imagens tem position absolute, ao girar no eixo Y, elas ficaram com os versos virados */
 }
 
 .card.flip {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
